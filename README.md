@@ -9,10 +9,10 @@ Sugerimos o uso das seguintes ferramentas acessíveis: [FullCalendar](https://fu
 
 ## Informações do trabalho
 
-- Nome:
-- Matricula:
-- Proposta de projeto escolhida:
-- Breve descrição sobre seu projeto:
+- Nome: João Victor Vial Leite Soares
+- Matricula: 774152
+- Proposta de projeto escolhida: Site sobre criptomoedas
+- Breve descrição sobre seu projeto: Um site que despõe as principais moedas do mercado com suas caracteristicas únicas e dispões de um gráfico que mostra o valor de mercado que elas tem em relação uma da outra, postagens podem ser alterados por meio de uma API CRUD.
 
 **Print da tela com a implementação**
 
