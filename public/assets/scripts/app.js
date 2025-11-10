@@ -1,5 +1,43 @@
 const urlBase = 'http://localhost:3000/criptomoedas';
 
+fetch(urlBase)
+  .then(res => res.json())
+  .then(data => {
+    const criptos = data; 
+
+    const labels = criptos.map(c => c.nome);
+    const marketCaps = criptos.map(c => Number(c.market_cap)); 
+
+    const total = marketCaps.reduce((acc, val) => acc + val, 0);
+
+    
+    const ctx = document.getElementById('graficoMarketCap').getContext('2d');
+
+    new Chart(ctx, {
+  type: 'pie',
+  data: {
+    labels,
+    datasets: [{
+      data: marketCaps
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false, 
+    options: {
+    responsive: true,
+    maintainAspectRatio: false
+  },
+    plugins: {
+      title: {
+        display: true,
+        text: 'Market Cap'
+      }
+    }
+  }});
+  });
+
+
 // === POST (criar nova) ===
 async function novaPostagem(dados) {
   try {
@@ -76,34 +114,54 @@ async function Editor(e) {
   e.preventDefault();
 
   const status = document.getElementById('status').value;
-  const id = document.getElementById('id')?.value?.trim();
+  const id = document.getElementById('id').value.trim();
+
+  if (!id && status !== 'POST') {
+    alert("Informe o ID para PUT ou DELETE");
+    return;
+  }
+
   const nome = document.getElementById('nome').value.trim();
   const descricao = document.getElementById('descricao').value.trim();
   const criador = document.getElementById('criador').value.trim();
   const ano = parseInt(document.getElementById('ano').value);
   const conteudo = document.getElementById('conteudo').value.trim();
-
-  const dados = { nome, descricao, criador, ano_criacao: ano, conteudo };
+  const market_cap = Number(document.getElementById('mktc').value); // ← PEGANDO O MARKET CAP
 
   switch (status) {
+
     case 'POST':
-      await novaPostagem(dados);
+      await novaPostagem({ nome, descricao, criador, ano_criacao: ano, conteudo, market_cap });
       break;
 
     case 'PUT':
-      await editarPostagem(id, dados);
+      // 1) BUSCA O OBJETO ATUAL
+      const atual = await fetch(`${urlBase}/${id}`).then(r => r.json());
+
+      // 2) MONTA O OBJETO COMPLETO
+      const dadosAtualizados = {
+        ...atual,
+        nome,
+        descricao,
+        criador,
+        ano_criacao: ano,
+        conteudo,
+        market_cap,
+        subtopicos: atual.subtopicos || []  
+      };
+
+      // 3) ENVIA VIA PUT
+      await editarPostagem(id, dadosAtualizados);
       break;
 
     case 'DELETE':
       await apagarPostagem(id);
       break;
-
-    default:
-      alert("Selecione uma ação válida.");
   }
 
   document.getElementById('form-nova').reset();
 }
+
 
 // === CARREGAR DADOS ===
 async function carregarDados() {

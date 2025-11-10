@@ -26,6 +26,8 @@
       "destaque": true,
       "data": "2025-03-30",
       "imagem_principal": "assets/img/btc1.png",
+      "preco": 35000,
+      "market_cap": 680000000000,
       "subtopicos": [
         {
           "id": 1,
@@ -57,6 +59,8 @@
       "destaque": true,
       "data": "2025-03-30",
       "imagem_principal": "assets/img/eth.png",
+      "preco": 2100,
+      "market_cap": 250000000000,
       "subtopicos": [
         {
           "id": 1,
@@ -88,6 +92,8 @@
       "destaque": false,
       "data": "2025-03-30",
       "imagem_principal": "assets/img/sol.png",
+      "preco": 95,
+      "market_cap": 40000000000,
       "subtopicos": [
         {
           "id": 1,
@@ -119,6 +125,8 @@
       "destaque": false,
       "data": "2025-03-30",
       "imagem_principal": "assets/img/xmr.png",
+      "preco": 175,
+      "market_cap": 3200000000,
       "subtopicos": [
         {
           "id": 1,
@@ -150,6 +158,8 @@
       "destaque": false,
       "data": "2025-03-30",
       "imagem_principal": "assets/img/dot.png",
+      "preco": 7.5,
+      "market_cap": 9000000000,
       "subtopicos": [
         {
           "id": 1,
@@ -181,6 +191,8 @@
       "destaque": false,
       "data": "2025-03-30",
       "imagem_principal": "assets/img/xrp.png",
+      "preco": 0.55,
+      "market_cap": 26000000000,
       "subtopicos": [
         {
           "id": 1,

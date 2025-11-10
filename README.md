@@ -18,6 +18,8 @@ Sugerimos o uso das seguintes ferramentas acessíveis: [FullCalendar](https://fu
 
 << Coloque aqui uma breve explicação da implementação feita nessa etapa>>
 
-<<  COLOQUE A IMAGEM TELA 1 AQUI >>
+![ex1](public/assets/img/ex1.png)
+Gráfico antes de alterar os dados
 
-<<  COLOQUE A IMAGEM TELA 2 AQUI >>
+![ex2](public/assets/img/ex2.png)
+Grágfico depois de alterar os dados
